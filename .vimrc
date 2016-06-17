@@ -131,11 +131,11 @@ set hidden
 set path+=.,"/usr/include/"
 if isdirectory('/usr/include/c++/4.9')
     set path+=/usr/include/c++/4.9
-elseif( isdirectory('/usr/include/c++/4.8')
+elseif isdirectory('/usr/include/c++/4.8')
     set path+=/usr/include/c++/4.8
-elseif( isdirectory('/usr/include/c++/4.7')
+elseif isdirectory('/usr/include/c++/4.7')
     set path+=/usr/include/c++/4.7
-elseif( isdirectory('/usr/include/c++/4.6')
+elseif isdirectory('/usr/include/c++/4.6')
     set path+=/usr/include/c++/4.6
 endif
 
