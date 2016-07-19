@@ -30,13 +30,14 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
 
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'https://github.com/vim-scripts/OmniCppComplete'
 Plugin 'bling/vim-bufferline'
 Plugin 'scrooloose/syntastic'
 Plugin 'vim-cpp-auto-include'
-Plugin 'Acpp'
+"Plugin 'Acpp'
 Plugin 'cpp.vim'
 Plugin 'https://github.com/scrooloose/nerdcommenter.git'
 "Plugin 'https://github.com/sjbach/lusty.git'
@@ -54,6 +55,14 @@ Plugin 'https://github.com/ConradIrwin/vim-bracketed-paste.git'
 Plugin 'https://github.com/majutsushi/tagbar.git'
 Plugin 'https://github.com/rking/ag.vim.git'
 Plugin 'https://github.com/kien/ctrlp.vim.git'
+Plugin 'https://github.com/tpope/vim-unimpaired.git'
+
+" colors
+Plugin 'damage220/solas.vim'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'mhartington/oceanic-next'
+Plugin 'https://github.com/jonathanfilip/vim-lucius.git'
+
 
 " TODO
 " http://vimawesome.com/
@@ -106,19 +115,21 @@ set softtabstop=4
 
 " line height
 set colorcolumn=100
-highlight ColorColumn ctermbg=darkgray
+"highlight ColorColumn ctermbg=darkgray
 
-"set cursorline
-
-
-" line number
-set number
+" relative line numbers
+set relativenumber 
 "highlight CursorLineNr ctermfg=grey ctermbg=grey
 
 " higlight current line
 "set cursorline
 hi CursorLine   cterm=NONE ctermbg=darkgray ctermfg=white guibg=darkgray guifg=white
 hi CursorColumn cterm=NONE ctermbg=darkgray ctermfg=white guibg=darkgray guifg=white
+
+"set background=dark
+colorscheme lucius
+"LuciusDarkHighContrast
+LuciusLightHighContrast
 
 " search vimrc in current directory
 set exrc
@@ -131,11 +142,11 @@ set hidden
 set path+=.,"/usr/include/"
 if isdirectory('/usr/include/c++/4.9')
     set path+=/usr/include/c++/4.9
-elseif( isdirectory('/usr/include/c++/4.8')
+elseif isdirectory('/usr/include/c++/4.8')
     set path+=/usr/include/c++/4.8
-elseif( isdirectory('/usr/include/c++/4.7')
+elseif isdirectory('/usr/include/c++/4.7')
     set path+=/usr/include/c++/4.7
-elseif( isdirectory('/usr/include/c++/4.6')
+elseif isdirectory('/usr/include/c++/4.6')
     set path+=/usr/include/c++/4.6
 endif
 
@@ -146,13 +157,14 @@ highlight ExtraWhitespace ctermbg=gray guibg=gray
 match ExtraWhitespace /\s\+$/
 
 
-" enable vim-airline
+" vim-airline
 let g:airline#extensions#tabline#enabled = 1
 "let g:airline_enable_fugitive=1
 let g:airline_enable_syntastic=1
 let g:airline_enable_bufferline=1
 let g:airline_theme='dark'
 let g:airline_powerline_fonts = 1
+"let g:airline_theme='solarized'
 set laststatus=2
 
 
@@ -238,8 +250,8 @@ set completeopt-=preview
 
 
 "tmp!
-"autocmd FileType cpp set omnifunc=cppcomplete#CompleteCPP
-"au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set omnifunc=omni#cpp#complete#Main
+autocmd FileType cpp set omnifunc=cppcomplete#CompleteCPP
+au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set omnifunc=omni#cpp#complete#Main
 
 " YouCompleteMe
 let g:ycm_confirm_extra_conf = 0
@@ -264,10 +276,18 @@ nnoremap <leader>/ :call eregex#toggle()<CR>
 let g:ag_working_path_mode="r"
 
 " CtrlP plugin
-let g:ctrlp_map = '<c-p>'
+let g:ctrlp_map = '<c-i>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_extensions = ['tag', 'buffertag', 'dir']
 
 " don't sort by name
 let g:tagbar_sort = 0
 nmap <F8> :TagbarToggle<CR>
+
+"""" NerdCommenter
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
