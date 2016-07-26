@@ -150,8 +150,6 @@ elseif isdirectory('/usr/include/c++/4.6')
     set path+=/usr/include/c++/4.6
 endif
 
-let mapleader = ","
-
 " extra spaces
 highlight ExtraWhitespace ctermbg=gray guibg=gray
 match ExtraWhitespace /\s\+$/
@@ -270,6 +268,7 @@ highlight ExtraWhitespace ctermbg=red
 
 " eregex plugin
 nnoremap <leader>/ :call eregex#toggle()<CR>
+let g:eregex_default_enable = 0
 
 " ag plugin
 " start searching from your project root
