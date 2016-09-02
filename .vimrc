@@ -290,3 +290,8 @@ let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
+
+
+" higlight <..> pair for C++ templates
+au FileType cpp set matchpairs+=<:>
+
