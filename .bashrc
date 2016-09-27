@@ -17,6 +17,8 @@ shopt -s extglob # Enable extended pattern matching
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# vi mode
+set -o vi
 
 export HISTCONTROL=ignoreboth:erasedups   # no duplicate entries
 shopt -s histappend                       # append history file
