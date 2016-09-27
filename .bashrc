@@ -60,6 +60,7 @@ fi
 
 alias rgrep='grep -R'
 alias ag='ag --color-line-number=35 --color-match="48;5;7" --color-path=31'
+alias ls='ls --color=auto'
 
 ulimit -c unlimited
 
