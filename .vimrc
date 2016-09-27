@@ -295,3 +295,15 @@ let g:NERDTrimTrailingWhitespace = 1
 " higlight <..> pair for C++ templates
 au FileType cpp set matchpairs+=<:>
 
+
+" :W sudo saves the file
+" (useful for handling the permission-denied error)
+command W w !sudo tee % > /dev/null
+
+" Minimal number of screen lines to keep above and below the cursor
+set scrolloff=10
+
+" Ignore files
+set wildignore=*.o,*~,*.pyc
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+
