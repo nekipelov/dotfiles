@@ -1,4 +1,12 @@
 set editing-mode vi
-set keymap vi-command
+#set keymap vi-command
 set show-mode-in-prompt on
 
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
+"\e[5C": forward-word
+"\e[5D": backward-word
+"\e\e[C": forward-word
+"\e\e[D": backward-word
+
+$include /etc/inputrc
