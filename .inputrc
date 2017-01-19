@@ -2,11 +2,30 @@ set editing-mode vi
 #set keymap vi-command
 set show-mode-in-prompt on
 
+set vi-cmd-mode-string "\1\e[1;31m\2:: "
+set vi-ins-mode-string "\1\e[0;30m\2++ "
+
 "\e[1;5C": forward-word
 "\e[1;5D": backward-word
 "\e[5C": forward-word
 "\e[5D": backward-word
-"\e\e[C": forward-word
-"\e\e[D": backward-word
+"\e\e[C": forward-word # alt + left-arrow
+"\e\e[D": backward-word # alt + right-arrow
+
+"\e[3~": delete-char # delete key
 
 $include /etc/inputrc
+
+set keymap emacs
+"\ee": vi-editing-mode
+"jk": "\eejk"
+"kj": "\eejk"
+
+set keymap vi-insert
+"\ee": emacs-editing-mode
+"jk": vi-movement-mode
+"kj": vi-movement-mode
+
+set keymap vi-command
+"\ee": emacs-editing-mode
+
