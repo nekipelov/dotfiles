@@ -1,3 +1,8 @@
+"
+" .vimrc: https://github.com/nekipelov/dotfiles
+" authro: Alex Nekipelov (alex@nekipelov.net)
+"
+
 " Plugin settings
 let g:NERDCustomDelimiters = {'cpp': { 'left': '//', 'leftAlt': 'REM ' }}
 
@@ -278,6 +283,9 @@ let g:ag_working_path_mode="r"
 let g:ctrlp_map = '<c-i>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_extensions = ['tag', 'buffertag', 'dir']
+            let g:ctrlp_custom_ignore = {
+                \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+                \ 'file': '\.o$' }
 
 " don't sort by name
 let g:tagbar_sort = 0
@@ -307,3 +315,18 @@ set scrolloff=10
 set wildignore=*.o,*~,*.pyc
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 
+
+" Persistent undo
+if has('persistent_undo')
+    set undofile                " Save undo's after file closes
+    set undodir=$HOME/.vim/undo " where to save undo histories
+    set undolevels=1000         " How many undos
+    set undoreload=10000        " number of lines to save for undo
+endif
+
+" Visual shifting (does not exit Visual mode)
+vnoremap < <gv
+vnoremap > >gv
+
+" allow the . to execute once for each line of a visual selection
+vnoremap . :normal .<CR>
