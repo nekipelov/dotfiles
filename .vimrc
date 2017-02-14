@@ -61,17 +61,18 @@ Plugin 'https://github.com/majutsushi/tagbar.git'
 Plugin 'https://github.com/rking/ag.vim.git'
 Plugin 'https://github.com/kien/ctrlp.vim.git'
 Plugin 'https://github.com/tpope/vim-unimpaired.git'
+Plugin 'https://github.com/easymotion/vim-easymotion.git'
 
 " colors
 Plugin 'damage220/solas.vim'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'mhartington/oceanic-next'
 Plugin 'https://github.com/jonathanfilip/vim-lucius.git'
+Plugin 'https://github.com/altercation/vim-colors-solarized.git'
 
 
 " TODO
 " http://vimawesome.com/
-"Plugin 'https://github.com/easymotion/vim-easymotion.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -123,7 +124,9 @@ set colorcolumn=100
 "highlight ColorColumn ctermbg=darkgray
 
 " relative line numbers
-set relativenumber 
+set relativenumber
+" print current line number
+set number
 "highlight CursorLineNr ctermfg=grey ctermbg=grey
 
 " higlight current line
@@ -131,10 +134,11 @@ set relativenumber
 hi CursorLine   cterm=NONE ctermbg=darkgray ctermfg=white guibg=darkgray guifg=white
 hi CursorColumn cterm=NONE ctermbg=darkgray ctermfg=white guibg=darkgray guifg=white
 
-"set background=dark
-colorscheme lucius
+set background=dark
+colorscheme solarized
+"colorscheme lucius
 "LuciusDarkHighContrast
-LuciusLightHighContrast
+"LuciusLightHighContrast
 
 " search vimrc in current directory
 set exrc
@@ -165,9 +169,9 @@ let g:airline#extensions#tabline#enabled = 1
 "let g:airline_enable_fugitive=1
 let g:airline_enable_syntastic=1
 let g:airline_enable_bufferline=1
-let g:airline_theme='dark'
+"let g:airline_theme='dark'
 let g:airline_powerline_fonts = 1
-"let g:airline_theme='solarized'
+let g:airline_theme='solarized'
 set laststatus=2
 
 
@@ -188,16 +192,12 @@ let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
-" next/prev error
-nmap <C-n>           :cn<CR>
-nmap <C-p>           :cp<CR>
-
 
 " Replace word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
 
 " git grep word under cursor 
-nnoremap <Leader>f :Ggrep -w <C-r><C-w>
+"nnoremap <Leader>f :Ggrep -w <C-r><C-w>
 
 " Higlight word under cursor
 autocmd CursorMoved * exe printf('match Search /\V\<%s\>/', escape(expand('<cword>'), '/\'))
@@ -277,7 +277,7 @@ let g:eregex_default_enable = 0
 
 " ag plugin
 " start searching from your project root
-let g:ag_working_path_mode="r"
+"let g:ag_working_path_mode="r"
 
 " CtrlP plugin
 let g:ctrlp_map = '<c-i>'
@@ -299,6 +299,13 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
+""" EasyMotion
+
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" z{char}{char} to move to {char}{char}
+nmap z <Plug>(easymotion-overwin-f2)
 
 " higlight <..> pair for C++ templates
 au FileType cpp set matchpairs+=<:>
@@ -330,3 +337,10 @@ vnoremap > >gv
 
 " allow the . to execute once for each line of a visual selection
 vnoremap . :normal .<CR>
+
+" next/prev error
+nmap <C-n>           :cn<CR>
+nmap <C-p>           :cp<CR>
+
+" wild menu
+set wildmenu
