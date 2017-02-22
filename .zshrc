@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
  export ZSH=/home/a.nekipelov/.oh-my-zsh
@@ -44,7 +44,7 @@ ZSH_THEME="avit"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+#HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -54,7 +54,7 @@ ZSH_THEME="avit"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(gitfast git-prompt vi-mode)
-plugins=(vi-mode zsh-syntax-highlighting)
+plugins=(vi-mode zsh-syntax-highlighting gitfast)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -151,6 +151,11 @@ setopt BRACECCL
 
 
 # home/end keys
-bindkey "${terminfo[khome]}" beginning-of-line
-bindkey "${terminfo[kend]}" end-of-line
+bindkey "${terminfo[khome]}" beginning-of-line # home key
+bindkey "${terminfo[kend]}" end-of-line  # end key
+bindkey "${terminfo[kdch1]}" delete-char # delete key
+
+
+# color terminal
+export TERM='xterm-256color'
 
