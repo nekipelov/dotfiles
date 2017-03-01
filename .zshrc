@@ -1,5 +1,12 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+if [ -d $HOME/bin ]; then
+    export PATH=$HOME/bin:$PATH
+fi
+
+if [ -d $HOME/.cargo/bin ]; then
+    export PATH=$HOME/.cargo/bin:$PATH
+fi
 
 # Path to your oh-my-zsh installation.
  export ZSH=/home/a.nekipelov/.oh-my-zsh
@@ -154,6 +161,8 @@ setopt BRACECCL
 bindkey "${terminfo[khome]}" beginning-of-line # home key
 bindkey "${terminfo[kend]}" end-of-line  # end key
 bindkey "${terminfo[kdch1]}" delete-char # delete key
+bindkey "^[[1;5C" forward-word # ctrl + right arrow
+bindkey "^[[1;5D" backward-word # ctrl + left arrow
 
 
 # color terminal
