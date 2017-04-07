@@ -144,11 +144,6 @@ setopt HIST_NO_STORE
 setopt AUTO_CD
 setopt NOTIFY
 
-# fix typos
-setopt CORRECT_ALL
-SPROMPT='zsh: Replace '\''%R'\'' на '\''%r'\'' ? [Yes/No/Abort/Edit] '
-
-
 # escape url (example: &amp;, ?, ~ etc)
 autoload -U url-quote-magic
 zle -N self-insert url-quote-magic
@@ -156,6 +151,9 @@ zle -N self-insert url-quote-magic
 # Brace expansion ({1-3} -> "1 2 3", {a-c} -> "a b c")
 setopt BRACECCL
 
+# no default pager
+PAGER=
+export PAGER
 
 # home/end keys
 bindkey "${terminfo[khome]}" beginning-of-line # home key
