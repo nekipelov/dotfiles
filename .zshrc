@@ -107,7 +107,7 @@ alias df='df -k --print-type --human-readable'
 alias du='du -k --total --human-readable' 
 alias ag='ag --color-line-number=35 --color-match="48;5;7" --color-path=31'
 alias ls='ls --color=auto'
-alias gg='git grep'
+alias gg='git grep -n'
 
 
 # color commands with grc
@@ -152,7 +152,7 @@ zle -N self-insert url-quote-magic
 setopt BRACECCL
 
 # no default pager
-PAGER=
+PAGER='less -F'
 export PAGER
 
 # home/end keys
