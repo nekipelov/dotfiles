@@ -14,7 +14,12 @@
     co = checkout
     ci = commit
     br = branch
+    st = status 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-	required = true
+    required = true
+[oh-my-zsh]
+    hide-status = 1
+    hide-dirty = 1
+
