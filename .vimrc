@@ -281,7 +281,7 @@ let g:eregex_default_enable = 0
 
 " CtrlP plugin
 let g:ctrlp_map = '<c-i>'
-let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_cmd = '<Leader>p'
 let g:ctrlp_extensions = ['tag', 'buffertag', 'dir']
             let g:ctrlp_custom_ignore = {
                 \ 'dir':  '\.git$\|\.hg$\|\.svn$',
@@ -344,3 +344,17 @@ nmap <C-p>           :cp<CR>
 
 " wild menu
 set wildmenu
+
+
+let g:charset_is_cp1251 = 0
+function! ToggleCharset()
+    if g:charset_is_cp1251
+        let g:charset_is_cp1251 = 0
+         e ++enc=utf-8
+    else
+        let g:charset_is_cp1251 = 1
+         e ++enc=cp1251
+    endif
+endfunction
+nmap <F3> :call ToggleCharset()<CR>
+
