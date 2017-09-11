@@ -280,8 +280,8 @@ let g:eregex_default_enable = 0
 "let g:ag_working_path_mode="r"
 
 " CtrlP plugin
-let g:ctrlp_map = '<c-i>'
-let g:ctrlp_cmd = '<Leader>p'
+let g:ctrlp_map = '<Leader>p'
+let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_extensions = ['tag', 'buffertag', 'dir']
             let g:ctrlp_custom_ignore = {
                 \ 'dir':  '\.git$\|\.hg$\|\.svn$',
