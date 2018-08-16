@@ -60,6 +60,7 @@ Plugin 'https://github.com/ConradIrwin/vim-bracketed-paste.git'
 Plugin 'https://github.com/majutsushi/tagbar.git'
 Plugin 'https://github.com/rking/ag.vim.git'
 Plugin 'https://github.com/kien/ctrlp.vim.git'
+Plugin 'https://github.com/junegunn/fzf'
 Plugin 'https://github.com/tpope/vim-unimpaired.git'
 Plugin 'https://github.com/easymotion/vim-easymotion.git'
 
@@ -358,3 +359,7 @@ function! ToggleCharset()
 endfunction
 nmap <F3> :call ToggleCharset()<CR>
 
+
+let g:fugitive_git_grep_options='-n --no-color --recurse-submodules'
+
+set backspace=indent,eol,start

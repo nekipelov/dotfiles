@@ -107,7 +107,7 @@ alias df='df -k --print-type --human-readable'
 alias du='du -k --total --human-readable' 
 alias ag='ag --color-line-number=35 --color-match="48;5;7" --color-path=31'
 alias ls='ls --color=auto'
-alias gg='git grep -n'
+alias gg='git grep --recurse-submodules -n'
 
 
 # color commands with grc
