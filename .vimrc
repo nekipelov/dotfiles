@@ -41,7 +41,6 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'https://github.com/vim-scripts/OmniCppComplete'
 Plugin 'bling/vim-bufferline'
 Plugin 'scrooloose/syntastic'
-Plugin 'vim-cpp-auto-include'
 "Plugin 'Acpp'
 Plugin 'cpp.vim'
 Plugin 'https://github.com/scrooloose/nerdcommenter.git'
@@ -63,6 +62,7 @@ Plugin 'https://github.com/kien/ctrlp.vim.git'
 Plugin 'https://github.com/junegunn/fzf'
 Plugin 'https://github.com/tpope/vim-unimpaired.git'
 Plugin 'https://github.com/easymotion/vim-easymotion.git'
+Plugin 'rust-lang/rust.vim'
 
 " colors
 Plugin 'damage220/solas.vim'
@@ -287,6 +287,12 @@ let g:ctrlp_extensions = ['tag', 'buffertag', 'dir']
             let g:ctrlp_custom_ignore = {
                 \ 'dir':  '\.git$\|\.hg$\|\.svn$',
                 \ 'file': '\.o$' }
+
+" CommandT plugin
+nmap <silent> <Leader>t <Plug>(CommandT)
+nmap <silent> <Leader>b <Plug>(CommandTBuffer)
+nmap <silent> <Leader>j <Plug>(CommandTJump)
+
 
 " don't sort by name
 let g:tagbar_sort = 0

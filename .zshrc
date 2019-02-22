@@ -46,7 +46,7 @@ ZSH_THEME="avit"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-#DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -103,11 +103,12 @@ SAVEHIST=500000
 
 alias rgrep='grep -R --colour=auto'
 alias grep='grep --colour=auto'
-alias df='df -k --print-type --human-readable' 
-alias du='du -k --total --human-readable' 
+alias df='df -k --print-type --human-readable'
+alias du='du -k --total --human-readable'
 alias ag='ag --color-line-number=35 --color-match="48;5;7" --color-path=31'
 alias ls='ls --color=auto'
 alias gg='git grep --recurse-submodules -n'
+alias gp='git pull'
 
 
 # color commands with grc
@@ -152,7 +153,7 @@ zle -N self-insert url-quote-magic
 setopt BRACECCL
 
 # no default pager
-PAGER='less -F'
+PAGER='less -XF'
 export PAGER
 
 # home/end keys
@@ -166,3 +167,16 @@ bindkey "^[[1;5D" backward-word # ctrl + left arrow
 # color terminal
 export TERM='xterm-256color'
 
+
+## set tmux title
+settitle() {
+    printf "\033k$1\033\\"
+}
+
+## set hostname as title
+ssh() {
+
+    settitle "`echo $* | cut -d'.' -f1`"
+    command ssh "$@"
+    settitle "zsh"
+}
