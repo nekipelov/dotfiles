@@ -167,6 +167,9 @@ bindkey "^[[1;5D" backward-word # ctrl + left arrow
 # color terminal
 export TERM='xterm-256color'
 
+# set history file
+export HISTFILE=~/.histfile
+
 
 ## set tmux title
 settitle() {
@@ -179,4 +182,12 @@ ssh() {
     settitle "`echo $* | cut -d'.' -f1`"
     command ssh "$@"
     settitle "zsh"
+}
+
+f () {
+    if (( $# == 0 )) then
+        find
+    else
+       for i; do find -name "*$i*"; done
+    fi
 }
